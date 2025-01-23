@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { getAllTeams, fetchAndAssignRankings } from '../services/fffService.js';
+import { getAllTeams, fetchAndAssignRankings } from '../services/fffservice.js';
 import { getGroupRanking, getNextTeamMatch, getLastTeamMatch, getCompetitionTeams, getCompetitionResults, getCompetitionCalendar } from '../services/fff/fff_data_module.mjs';
 import { sendJsonResponse } from '../utils/response.js';
 import { teamsValidator, rankingsValidator, rankingValidator, matchValidator } from '../validation/validators.js';

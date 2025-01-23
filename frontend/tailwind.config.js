@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 module.exports = {
   corePlugins: {
     preflight: false, // Désactive les styles globaux de réinitialisation

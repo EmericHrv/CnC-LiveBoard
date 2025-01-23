@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend-classements
+    restart: always
+    networks:
+      - classements_network
+    environment:
+      - CLUB_IDS=8422,200608
+      - HTTP_PORT=5050
+      - NODE_ENV=production
+      - JWT_SECRET=AD#K#YQ7*zpTqnmX9mv3t9vSF8GW!MP@nUmptXXn2#xTDBzU#q9maDthdrh3
+      - MONGO_URL=mongodb://mongo:27017/liveboardDB
+    ports:
+      - "5050:5050"
+    volumes:
+      - uploads-volume:/usr/src/app/assets/uploads # Montre le volume au dossier dans le conteneur
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend-classements
+    restart: always
+    networks:
+      - classements_network
+    environment:
+      - VITE_API_BASE_URL=https://api.liveboard.esmorannes.com
+      - PRIMARY_LIGHT=#fff385
+      - PRIMARY_DEFAULT=#ffde00
+      - PRIMARY_DARK=#ccaf00
+      - TEXT_COLOR=#000000
+    ports:
+      - "8082:8082"
+
+volumes:
+  uploads-volume:
+    # Volume pour stocker les images
+
+networks:
+  classements_network:
+    external: true

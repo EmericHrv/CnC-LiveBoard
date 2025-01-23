@@ -1,0 +1,41 @@
+/* ErrorPage.css */
+
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: var(--spacing-medium);
+    background-color: var(--background-light);
+}
+
+.error-title {
+    font-size: calc(var(--font-size-base) * 2);
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-medium);
+    text-align: center;
+}
+
+.error-image {
+    width: 50%;
+    max-width: 30vw;
+    height: auto;
+    margin-bottom: var(--spacing-medium);
+}
+
+.error-status {
+    font-size: calc(var(--font-size-base) * 1.5);
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-medium);
+    text-align: center;
+}
+
+.error-message {
+    font-size: calc(var(--font-size-base) * 1);
+    text-align: center;
+    max-width: 40vw;
+    color: var(--text-color);
+}

@@ -1,0 +1,22 @@
+/* Header.css */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5vh;
+    /* Hauteur dynamique basée sur la hauteur de l'écran */
+    background-color: var(--primary-color);
+    /* Couleur dynamique */
+    padding: var(--spacing-medium);
+    /* Espacement dynamique */
+}
+
+.header-title {
+    font-size: clamp(1.5rem, 1.5vw, 4rem);
+    /* Taille de texte adaptable */
+    font-weight: 600;
+    color: var(--text-color);
+    margin: var(--spacing-large) 0 !important;
+    /* Forcer la priorité de la marge */
+}

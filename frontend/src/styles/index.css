@@ -1,0 +1,130 @@
+/* index.css */
+
+/* Variables CSS globales */
+:root {
+  --primary-light: #fff385;
+  /* Couleur dérivée claire */
+  --primary-color: #ffde00;
+  /* Couleur primaire par défaut */
+  --primary-dark: #ccaf00;
+  /* Couleur dérivée foncée */
+  --text-color: #000000;
+  /* Couleur par défaut pour le texte */
+  --font-size-base: 0.5vw;
+  /* Taille de base dynamique */
+  --spacing-small: 0.5rem;
+  /* Espacement petit */
+  --spacing-medium: 1rem;
+  /* Espacement moyen */
+  --spacing-large: 2rem;
+  /* Espacement large */
+  --border-radius: 0.5rem;
+  /* Rayon des bordures */
+  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  /* Ombre légère */
+  --background-light: #f7fafc;
+  /* Couleur de fond globale */
+  --background-dark: #252728;
+  /* Couleur de fond sombre */
+}
+
+/* Configuration pour le plein écran */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* overflow: hidden; */
+  /* Supprime les barres de défilement */
+  background-color: var(--background-light);
+}
+
+/* Typographie globale */
+body {
+  font-size: clamp(14px, var(--font-size-base), 20px);
+  /* Taille de texte dynamique */
+  color: var(--text-color);
+}
+
+/* Réinitialisation des marges et padding pour les textes */
+p,
+h3 {
+  margin: 0;
+  /* Réinitialisation des marges uniquement pour les titres génériques */
+  padding: 0;
+}
+
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  gap: var(--spacing-small);
+  padding: var(--spacing-small);
+  overflow: hidden;
+  /* Correction de la syntaxe */
+}
+
+/* Classes utilitaires */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+/* Classes pour les espacements */
+.spacing-small {
+  margin: var(--spacing-small);
+}
+
+.spacing-medium {
+  margin: var(--spacing-medium);
+}
+
+.spacing-large {
+  margin: var(--spacing-large);
+}
+
+.p-small {
+  padding: var(--spacing-small);
+}
+
+.p-medium {
+  padding: var(--spacing-medium);
+}
+
+.p-large {
+  padding: var(--spacing-large);
+}
+
+/* Reset des listes */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

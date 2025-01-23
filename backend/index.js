@@ -14,6 +14,8 @@ const port = HTTP_PORT || 8080;
 // Middleware for JSON parsing
 app.use(express.json());
 
+app.set('trust proxy', 1); // Active la prise en charge des proxys (comme Caddy, Nginx, etc.)
+
 // Serve static files assets/uploads
 app.use('/assets/uploads', express.static('assets/uploads'));
 

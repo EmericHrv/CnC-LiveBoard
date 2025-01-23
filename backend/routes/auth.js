@@ -8,7 +8,7 @@ dotenv.config();
 const router = express.Router();
 
 // Endpoint de connexion
-router.post('/login', loginLimiter, async (req, res) => {
+router.post('/login', async (req, res) => {
     console.log('Requête de connexion reçue');
     console.log('Corps de la requête :', req.body);
 

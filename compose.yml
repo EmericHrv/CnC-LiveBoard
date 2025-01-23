@@ -1,4 +1,12 @@
 services:
+  mongo:
+    image: mongo
+    container_name: mongo-liveboard
+    restart: always
+    networks:
+      - liveboard_network
+    volumes:
+      - mongo-data:/data/db
   backend:
     build:
       context: ./backend
@@ -35,7 +43,8 @@ services:
 
 volumes:
   uploads-volume:
-    # Volume pour stocker les images
+  mongo-data:
+
 
 networks:
   liveboard_network:

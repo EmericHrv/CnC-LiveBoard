@@ -2,7 +2,6 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js';
 import dotenv from 'dotenv';
-import bcrypt from 'bcrypt';
 
 dotenv.config();
 
@@ -16,8 +15,6 @@ router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
         // Recherche de l'utilisateur dans la base de données
-        const hashedPassword = await bcrypt.hash(password, 10);
-        console.log('hashedPassword :', hashedPassword);
         const user = await User.findOne({ username });
         if (!user || !(await user.comparePassword(password))) {
             return res.status(401).send({ error: 'Nom d\'utilisateur ou mot de passe invalide' });

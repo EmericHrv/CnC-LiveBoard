@@ -1,5 +1,4 @@
 import { User } from '../models/index.js';
-import bcrypt from 'bcryptjs';
 
 const createAdminUser = async () => {
     try {
@@ -14,7 +13,7 @@ const createAdminUser = async () => {
         if (!existingAdmin) {
             const adminUser = new User({
                 username: adminUsername,
-                password: await bcrypt.hash(adminPassword, 10),
+                password: adminPassword,
                 role: 'admin'
             });
             await adminUser.save();

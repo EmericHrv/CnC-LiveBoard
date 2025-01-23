@@ -19,6 +19,9 @@ RUN npm run build
 # Utiliser une image de serveur web pour servir les fichiers statiques
 FROM nginx:alpine
 
+# Copier le fichier de configuration nginx personnalisé
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copier les fichiers de build de l'application
 COPY --from=build /app/dist /usr/share/nginx/html
 

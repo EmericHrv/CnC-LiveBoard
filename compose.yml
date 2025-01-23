@@ -20,6 +20,8 @@ services:
       - NODE_ENV=production
       - JWT_SECRET=AD#K#YQ7*zpTqnmX9mv3t9vSF8GW!MP@nUmptXXn2#xTDBzU#q9maDthdrh3
       - MONGO_URL=mongodb://mongo:27017/liveboardDB
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=49Esm640!
     ports:
       - "5053:5053"
     volumes:

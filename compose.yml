@@ -26,7 +26,6 @@ services:
       - liveboard_network
     environment:
       - VITE_API_BASE_URL=https://api.liveboard.esmorannes.com
-      - HTTP_PORT=8083
       - PRIMARY_LIGHT=#fff385
       - PRIMARY_DEFAULT=#ffde00
       - PRIMARY_DARK=#ccaf00

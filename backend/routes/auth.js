@@ -4,6 +4,9 @@ import bcrypt from 'bcrypt';
 import Joi from 'joi';
 import User from '../models/user.model.js';
 import rateLimit from 'express-rate-limit';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const router = express.Router();
 
@@ -39,13 +42,6 @@ router.post('/login', loginLimiter, async (req, res) => {
         const user = await User.findOne({ username });
         if (!user || !(await user.comparePassword(password))) {
             return res.status(401).send({ error: 'Nom d\'utilisateur ou mot de passe invalide' });
-        }
-
-        if (user.first_login) {
-            return res.status(403).send({
-                error: 'Première connexion, veuillez changer votre mot de passe',
-                requiresPasswordChange: true,
-            });
         }
 
         const token = jwt.sign(

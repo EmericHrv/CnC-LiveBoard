@@ -46,6 +46,13 @@ const App = () => {
         </PublicRoute>
       } />
 
+      {/* Route vers InfosPage (publique) */}
+      <Route path="/infos" element={
+        <PublicRoute>
+          <InfosPage />
+        </PublicRoute>
+      } />
+
       {/* Route de connexion (publique) */}
       <Route path="/login" element={
         <PublicRoute>

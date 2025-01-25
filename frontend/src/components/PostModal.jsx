@@ -11,6 +11,8 @@ const PostModal = ({ isOpen, onClose, onSubmit, initialData }) => {
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState('');
 
+    console.log(initialData);
+
     // Remplit les champs avec les données initiales si elles existent
     useEffect(() => {
         if (initialData) {

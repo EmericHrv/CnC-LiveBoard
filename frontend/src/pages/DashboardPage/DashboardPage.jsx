@@ -204,7 +204,7 @@ const DashboardPage = () => {
             const token = localStorage.getItem('token');
             const method = postToEdit ? 'PUT' : 'POST';
             const url = postToEdit
-                ? `${API_BASE_URL}/api/posts/${postToEdit._id}`
+                ? `${API_BASE_URL}/api/posts/${postToEdit.id}`
                 : `${API_BASE_URL}/api/posts/create`;
 
             const response = await fetch(url, {

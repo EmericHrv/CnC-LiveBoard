@@ -31,11 +31,15 @@ const PrivateRoute = ({ children }) => {
   }
 };
 
-// Route publique : redirige vers Dashboard si déjà connecté
 const PublicRoute = ({ children }) => {
   const token = localStorage.getItem('token');
-  return token ? <Navigate to="/dashboard" /> : children;
+  const currentPath = window.location.pathname;
+  if (token && currentPath === '/login') {
+    return <Navigate to="/dashboard" />;
+  }
+  return children;
 };
+
 
 const App = () => {
   return (

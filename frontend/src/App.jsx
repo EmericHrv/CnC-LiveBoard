@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import MainPage from './pages/MainPage/MainPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import InfosPage from '../InfosPage/InfosPage';
 
 // Route privée : nécessite un token valide
 const PrivateRoute = ({ children }) => {

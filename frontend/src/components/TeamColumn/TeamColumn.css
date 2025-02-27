@@ -1,0 +1,31 @@
+/* ============================= */
+/*        TeamColumn.css         */
+/* ============================= */
+
+/* Conteneur principal de la colonne */
+.team-column {
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-small);
+    flex: 1;
+    /* Permet aux colonnes de prendre de la place égale */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Contenu principal de la colonne */
+.team-content {
+    margin-top: var(--spacing-medium);
+}
+
+/* Section du tableau de classement */
+.team-ranking {
+    margin-bottom: var(--spacing-medium);
+}
+
+/* Dernier match */
+.team-last-match {
+    margin-bottom: var(--spacing-medium);
+}

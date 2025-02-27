@@ -1,0 +1,22 @@
+/* ============================= */
+/*    CompetitionMatches.css     */
+/* ============================= */
+
+/* Corps du composant */
+.competition-matches-body {
+    padding: var(--spacing-medium);
+}
+
+/* Texte pour aucun résultat/match */
+.no-matches {
+    text-align: center;
+    color: #6b7280;
+    /* Gris clair */
+    font-size: 1rem;
+}
+
+/* Ligne de séparation */
+.divider {
+    margin: var(--spacing-small) 0;
+    border-top: 1px solid #ddd;
+}

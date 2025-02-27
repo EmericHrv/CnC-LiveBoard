@@ -14,7 +14,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
-const Header = ({ currentPage }) => {
+const DashboardHeader = ({ currentPage }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -89,4 +89,4 @@ const Header = ({ currentPage }) => {
     );
 };
 
-export default Header;
+export default DashboardHeader;

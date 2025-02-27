@@ -1,109 +1,138 @@
+/* ============================= */
+/*          InfosPage.css        */
+/* ============================= */
+
+/* Conteneur principal de la page */
 .infos-page {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100vh;
+    /* Utilise toute la hauteur de la fenêtre */
+    background-color: var(--background-light);
 }
 
-.content {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-medium);
-    padding: var(--spacing-medium);
+/* Conteneur des colonnes */
+.infos-container {
     flex-grow: 1;
-    height: 100vh;
+    /* Utilise l'espace restant après le header */
+    display: flex;
+    gap: var(--spacing-small);
+    /* Espacement entre les colonnes */
+    padding: var(--spacing-small);
+    height: calc(100vh - var(--header-height));
+    /* Hauteur limitée à la fenêtre */
+    overflow: hidden;
+    /* Empêche les débordements */
 }
 
-.events-column {
-    flex: 1 1 20%;
+/* En-tête de chaque colonne */
+.infos-header {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+/* Titre principal dans les en-têtes */
+.infos-header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Colonne principale */
+.infos-column {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: var(--spacing-small);
-}
-
-.events-header {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: var(--spacing-small);
-    text-align: center;
-    font-size: calc(var(--font-size-base) * 1.2);
-    font-weight: bold;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.events-list {
     flex-grow: 1;
-    overflow-y: auto;
-    margin-top: var(--spacing-medium);
-    display: flex;
-    flex-direction: column;
-}
-
-.events-list-footer {
-    margin-top: auto;
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: var(--spacing-large) var(--spacing-small);
-    text-align: center;
-    /* font-size: calc(var(--font-size-base) * 1.2); */
-    font-weight: bold;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.event-item {
-    margin-bottom: var(--spacing-medium);
-}
-
-.no-events-message,
-.error-message,
-.loading-message {
-    text-align: center;
-    font-size: calc(var(--font-size-base) * 0.8);
-    color: var(--text-color);
-}
-
-.error-message {
-    color: red;
-}
-
-.placeholder-column {
-    flex: 1 1 80%;
-    /* Plus d'espace pour la colonne des publications */
-    display: flex;
-    flex-direction: column;
     background-color: #fff;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: var(--spacing-small);
     overflow: hidden;
-    /* Empêche les débordements dans la colonne */
+    gap: var(--spacing-small);
+    /* Espacement entre les éléments */
 }
 
-.placeholder-header {
+/* Colonne des événements */
+.events-column {
+    flex: 1 1 25%;
+    /* Taille ajustée pour mieux équilibrer les colonnes */
+}
+
+/* Liste des événements */
+.events-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Ajoute un défilement vertical */
+    margin-top: var(--spacing-medium);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+    /* Ajoute un espace entre les items */
+}
+
+/* Pied des événements */
+.events-list-footer {
+    margin-top: auto;
     background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: var(--spacing-small);
+    color: var(--text-color-light);
+    padding: var(--spacing-medium);
     text-align: center;
-    font-size: calc(var(--font-size-base) * 1.2);
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    /* Taille adaptative */
     font-weight: bold;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+}
+
+/* Événement individuel */
+.event-item {
     margin-bottom: var(--spacing-medium);
 }
 
+/* Messages d'état (chargement, erreur, absence de données) */
+.no-events-message,
+.error-message,
+.loading-message {
+    text-align: center;
+    font-size: clamp(0.9rem, 1vw, 1.2rem);
+    /* Texte adaptatif */
+    color: var(--text-color);
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Colonne des publications */
+.placeholder-column {
+    flex: 1 1 75%;
+    /* Plus d'espace pour cette colonne */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Contenu des publications */
 .placeholder-content {
-    height: 100%;
-    /* Contenu interne remplit toute la colonne */
+    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Trois colonnes */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Colonnes adaptatives */
     grid-auto-rows: 1fr;
-    /* Assure que toutes les lignes ont la même hauteur */
+    /* Assure que toutes les cartes ont la même hauteur */
     gap: var(--spacing-small);
-    /* Espace entre les éléments */
+    /* Espace entre les cartes */
+    height: 100%;
+    /* Remplit toute la hauteur disponible */
+}
+
+
+/* Message vide pour les publications */
+.no-posts-message {
+    text-align: center;
+    font-size: clamp(0.9rem, 1vw, 1.2rem);
+    color: var(--text-color);
 }

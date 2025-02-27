@@ -1,0 +1,27 @@
+/* ============================= */
+/*         Header.css            */
+/* ============================= */
+
+/* Conteneur principal du header */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--header-height, 5vh);
+    /* Utilise une hauteur dynamique avec une valeur par défaut */
+    background-color: var(--primary-color);
+    padding: 0 var(--spacing-small);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Titre du header */
+.header-title {
+    font-size: clamp(1rem, 1.2vw, 2rem);
+    /* Augmente légèrement la taille pour plus de lisibilité */
+    font-weight: 600;
+    color: var(--text-color-light);
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+}

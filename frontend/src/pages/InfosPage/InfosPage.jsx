@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EventCard from '../../components/EventCard/EventCard';
 import PostCard from '../../components/PostCard/PostCard';
-import Header from '../../components/Header/Header';
+import AppHeader from '../../components/AppHeader/AppHeader';
 import './InfosPage.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.liveboard.esmorannes.com';
@@ -80,7 +80,7 @@ const InfosPage = () => {
                 <PostCard
                     key={post.id}
                     title={post.title}
-                    image={`${API_BASE_URL}${post.image.url}`} // Assume imageUrl is relative
+                    image={`${API_BASE_URL}${post.image.url}`} // Assume image URL is relative
                     text={post.content}
                 />
             ));
@@ -91,31 +91,30 @@ const InfosPage = () => {
     return (
         <div className="infos-page">
             {/* Header fixe */}
-            <Header title="Informations Diverses" />
+            <AppHeader title="Informations Diverses" />
 
             {/* Contenu principal */}
-            <div className="content">
+            <div className="infos-container">
                 {/* Colonne gauche pour les événements */}
-                <div className="events-column">
-                    <div className="events-header">
-                        <h2>Événements à venir</h2>
+                <div className="infos-column events-column">
+                    <div className="infos-header">
+                        <h2 className="infos-header-title">Événements à venir</h2>
                     </div>
                     <div className="events-list">
                         {renderEventsContent()}
-                        {/* separator */}
                         <div className="events-list-footer">
                             <h3>
-                                Écran offert avec générosité par notre partenaire et sponsor : <br /> Pulsat
-                                Châteauneuf-sur-Sarthe.
+                                Écran offert avec générosité par notre partenaire et sponsor : <br />
+                                Pulsat Châteauneuf-sur-Sarthe.
                             </h3>
                         </div>
                     </div>
                 </div>
 
-                {/* Colonne droite pour les PostCard */}
-                <div className="placeholder-column">
-                    <div className="placeholder-header">
-                        <h2>Autres informations</h2>
+                {/* Colonne droite pour les publications */}
+                <div className="infos-column placeholder-column">
+                    <div className="infos-header">
+                        <h2 className="infos-header-title">Autres informations</h2>
                     </div>
                     <div className="placeholder-content">
                         {renderPostsContent()}

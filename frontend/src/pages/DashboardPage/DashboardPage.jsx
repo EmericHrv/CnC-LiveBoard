@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Header from '../../components/Header';
-import ErrorMessage from '../../components/ErrorMessage';
+import DashboardHeader from '../../components/DashboardHeader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Notification from '../../components/Notification';
 import EventsTable from '../../components/EventsTable';
 import PostsTable from '../../components/PostsTable';
@@ -236,7 +236,7 @@ const DashboardPage = () => {
 
     return (
         <div className="min-h-full">
-            <Header currentPage="Tableau de bord" onLogout={handleLogout} />
+            <DashboardHeader currentPage="Tableau de bord" onLogout={handleLogout} />
             <main className="-mt-32">
                 <div className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 lg:px-8">
                     <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">

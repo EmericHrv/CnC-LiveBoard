@@ -1,62 +1,132 @@
+/* ============================= */
+/*          PostCard.css         */
+/* ============================= */
+
+/* Conteneur principal de la carte */
 .post-card {
-    height: 100%;
-    /* Prend toute la hauteur de la cellule */
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    height: 100%;
+    /* La carte remplit toute la hauteur disponible */
+    box-sizing: border-box;
+    /* Inclut le padding dans le calcul de la hauteur */
     overflow: hidden;
+    /* Empêche tout débordement visuel */
 }
 
-
+/* Conteneur de l'image */
 .post-image-container {
     width: 100%;
     height: 50%;
-    /* Limite la hauteur du conteneur à 50% de la carte */
+    /* 50% de la hauteur disponible */
     overflow: hidden;
     /* Masque les débordements de l'image */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--background-color-light);
-    /* Optionnel : couleur de fond */
+    background-color: #00000017;
+    /* Couleur de fond optionnelle */
+    border-radius: var(--border-radius);
 }
 
+/* Image de la carte */
 .post-image {
-    width: 100%;
     height: 100%;
-    object-fit: contain;
-    /* Adapte l'image pour qu'elle soit entièrement visible */
+    object-fit: cover;
+    /* Remplit le conteneur tout en gardant les proportions */
     object-position: center;
-    /* Centre l'image */
+    /* Centre l'image dans son conteneur */
 }
 
-
+/* Conteneur du contenu textuel */
 .post-content {
-    flex: 1 0 50%;
-    /* Fixe la hauteur du contenu à 50% de la carte */
+    width: 100%;
+    height: 50%;
+    /* 50% de la hauteur disponible */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    /* Garde le texte en haut */
+    justify-content: space-between;
+    /* Répartit le titre et le texte */
     padding: var(--spacing-small);
     overflow: hidden;
     /* Empêche les débordements visuels */
+    box-sizing: border-box;
+    /* Inclut les paddings dans le calcul de la hauteur */
 }
 
+/* Titre de la carte */
 .post-title {
-    text-align: center;
     font-size: clamp(1rem, 1.5vw, 1.2rem);
+    /* Taille de police adaptative */
     font-weight: bold;
     color: var(--text-color-dark);
-    margin-bottom: var(--spacing-small);
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    /* Empêche les débordements horizontaux */
+    text-overflow: ellipsis;
+    /* Ajoute des points de suspension si le texte est trop long */
+    white-space: nowrap;
+    /* Force le texte à rester sur une seule ligne */
 }
 
+/* Texte principal en Markdown */
 .post-text {
-    font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+    flex-grow: 1;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    /* Taille de police adaptative */
     color: var(--text-color);
-    line-height: 1.4;
+    overflow: hidden;
+    /* Empêche les débordements verticaux */
+    word-break: break-word;
+    /* Coupe les mots trop longs */
     margin-top: var(--spacing-small);
-    /* Évite que le texte colle au titre */
+    /* Espace au-dessus du texte */
+}
+
+/* Gérer les styles Markdown */
+.post-text h1,
+.post-text h2,
+.post-text h3 {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    margin: 0.5em 0;
+    /* Espacement vertical autour des titres */
+}
+
+.post-text p {
+    margin: 0.5em 0;
+    /* Ajoute de l'espacement entre les paragraphes */
+    /* line-height: 1.4; */
+    /* Espace entre les lignes */
+}
+
+.post-text ul,
+.post-text ol {
+    margin: 0.5em 0;
+    padding-left: 1.2em;
+    /* Décalage pour les listes */
+}
+
+.post-text li {
+    margin-bottom: 0.3em;
+    /* Espacement entre les éléments de liste */
+    line-height: 1.4;
+}
+
+.post-text a {
+    color: var(--primary-color);
+    /* Couleur des liens */
+    text-decoration: underline;
+    /* Style des liens */
+    overflow-wrap: break-word;
+    /* Coupe les liens longs */
+}
+
+.post-text strong {
+    font-weight: bold;
+    /* Met le texte en gras */
 }

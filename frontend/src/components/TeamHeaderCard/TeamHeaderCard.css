@@ -1,0 +1,47 @@
+/* ============================= */
+/*      TeamHeaderCard.css       */
+/* ============================= */
+
+/* Conteneur principal */
+.team-header-card {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: var(--spacing-small);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+/* Titre principal */
+.team-header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 var(--spacing-small);
+}
+
+/* Sous-titre */
+.team-header-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ============================= */
+/*    Media Query pour 4K        */
+/* ============================= */
+@media (min-width: 2560px) {
+    .team-header-card {
+        padding: var(--spacing-medium);
+        /* Plus d'espace interne */
+    }
+
+    .team-header-title {
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+        /* Agrandit le titre principal */
+    }
+
+    .team-header-subtitle {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        /* Augmente la taille du sous-titre */
+    }
+}

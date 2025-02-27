@@ -1,17 +1,23 @@
-/* index.css */
-
-/* Variables CSS globales */
+/* ============================= */
+/*      Variables globales       */
+/* ============================= */
 :root {
   --primary-light: #fff385;
-  /* Couleur dérivée claire */
+  /* Couleur claire */
   --primary-color: #ffde00;
-  /* Couleur primaire par défaut */
+  /* Couleur principale */
   --primary-dark: #ccaf00;
-  /* Couleur dérivée foncée */
+  /* Couleur foncée */
   --text-color: #000000;
-  /* Couleur par défaut pour le texte */
-  --font-size-base: 0.5vw;
-  /* Taille de base dynamique */
+  /* Couleur du texte */
+  --background-light: #f7fafc;
+  /* Fond clair */
+  --background-dark: #252728;
+  /* Fond sombre */
+  --font-size-base: 1vw;
+  /* Taille de police dynamique */
+  --spacing-very-small: 0.25rem;
+  /* Espacement très petit */
   --spacing-small: 0.5rem;
   /* Espacement petit */
   --spacing-medium: 1rem;
@@ -19,58 +25,89 @@
   --spacing-large: 2rem;
   /* Espacement large */
   --border-radius: 0.5rem;
-  /* Rayon des bordures */
-  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  /* Ombre légère */
-  --background-light: #f7fafc;
-  /* Couleur de fond globale */
-  --background-dark: #252728;
-  /* Couleur de fond sombre */
+  /* Bordures arrondies */
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  /* Ombre douce */
+  --header-height: 5vh;
+  /* Définit la hauteur globale du header */
 }
 
-/* Configuration pour le plein écran */
+/* ============================= */
+/*    Configuration générale     */
+/* ============================= */
 html,
 body,
 #root {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* overflow: hidden; */
-  /* Supprime les barres de défilement */
+  font-family: 'Roboto', sans-serif;
   background-color: var(--background-light);
-}
-
-/* Typographie globale */
-body {
-  font-size: clamp(14px, var(--font-size-base), 20px);
-  /* Taille de texte dynamique */
   color: var(--text-color);
-}
-
-/* Réinitialisation des marges et padding pour les textes */
-p,
-h3 {
-  margin: 0;
-  /* Réinitialisation des marges uniquement pour les titres génériques */
-  padding: 0;
-}
-
-
-.content {
-  display: flex;
-  flex-grow: 1;
-  gap: var(--spacing-small);
-  padding: var(--spacing-small);
   overflow: hidden;
-  /* Correction de la syntaxe */
+  /* Pas de défilement */
 }
 
-/* Classes utilitaires */
+body {
+  font-size: clamp(14px, var(--font-size-base), 24px);
+  /* Taille adaptative */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ============================= */
+/*    Contenu principal          */
+/* ============================= */
+.main-content {
+  flex-grow: 1;
+  /* Remplit tout l’espace disponible */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-medium);
+}
+
+/* En-tête */
+.common-component-header {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Conteneur */
+.common-component {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================= */
+/*    Composants réutilisables   */
+/* ============================= */
+.team-card,
+.info-card {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-medium);
+}
+
+/* ============================= */
+/*      Classes utilitaires      */
+/* ============================= */
 .flex-center {
   display: flex;
   justify-content: center;
@@ -97,34 +134,55 @@ h3 {
   box-shadow: var(--box-shadow);
 }
 
-/* Classes pour les espacements */
-.spacing-small {
-  margin: var(--spacing-small);
+/* Espacements */
+.mt-small {
+  margin-top: var(--spacing-small);
 }
 
-.spacing-medium {
-  margin: var(--spacing-medium);
+.mb-small {
+  margin-bottom: var(--spacing-small);
 }
 
-.spacing-large {
-  margin: var(--spacing-large);
+.pt-small {
+  padding-top: var(--spacing-small);
 }
 
-.p-small {
-  padding: var(--spacing-small);
+.pb-small {
+  padding-bottom: var(--spacing-small);
 }
 
-.p-medium {
-  padding: var(--spacing-medium);
-}
+/* ============================= */
+/*    Media Query pour 4K        */
+/* ============================= */
+@media (min-width: 2560px) {
+  :root {
+    --font-size-base: 2vw;
+    /* Augmente la taille de police pour les écrans 4K */
+    --spacing-very-small: 0.5rem;
+    --spacing-small: 1rem;
+    --spacing-medium: 2rem;
+    --spacing-large: 4rem;
+    --border-radius: 0.75rem;
+  }
 
-.p-large {
-  padding: var(--spacing-large);
-}
+  body {
+    font-size: clamp(16px, 1.5vw, 32px);
+    /* Taille de police plus grande */
+  }
 
-/* Reset des listes */
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  .infos-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Colonnes légèrement plus larges */
+  }
+
+  .common-component-header {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    /* Titre plus grand et lisible */
+  }
+
+  .team-card,
+  .info-card {
+    padding: var(--spacing-large);
+    /* Plus d’espace interne pour les composants */
+  }
 }

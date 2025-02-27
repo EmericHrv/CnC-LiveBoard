@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MatchCard from './MatchCard';
-import RankingTable from './RankingTable';
-import TeamHeaderCard from './TeamHeaderCard';
-import CompetitionResult from './CompetitionResult';
-import CompetitionCalendar from './CompetitionCalendar';
+import MatchCard from '../MatchCard/MatchCard';
+import RankingTable from '../RankingTable/RankingTable';
+import TeamHeaderCard from '../TeamHeaderCard/TeamHeaderCard';
+import CompetitionResult from '../CompetitionMatches/CompetitionResult';
+import CompetitionCalendar from '../CompetitionMatches/CompetitionCalendar';
+import './TeamColumn.css'; // Import des styles spécifiques
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.liveboard.esmorannes.com';
 
-const TeamColumn = ({ team, clubId, index }) => {  // Ajout de 'index' venant du parent
+const TeamColumn = ({ team, clubId, index }) => {
     const [ranking, setRanking] = useState([]);
     const [lastMatch, setLastMatch] = useState(null);
     const [nextMatch, setNextMatch] = useState(null);
@@ -57,38 +58,37 @@ const TeamColumn = ({ team, clubId, index }) => {  // Ajout de 'index' venant du
     }, [team, clubId]);
 
     return (
-        <div className="bg-white shadow-lg rounded-lg p-4 flex-1">
+        <div className="team-column">
             <TeamHeaderCard
                 title={team.title}
                 competitionName={team.competition ? team.competition.name : ''}
                 poule={team.competition ? `Poule ${team.competition.pouleLetter}` : ''}
             />
 
-            {/* Utilisation de l'index global passé en prop pour définir quelle vue afficher */}
             {index === 0 && (
-                <div className="mt-4">
+                <div className="team-content">
                     {ranking.length > 0 && (
-                        <div className="mb-4">
+                        <div className="team-ranking">
                             <RankingTable ranking={ranking} clubId={clubId} />
                         </div>
                     )}
-                    <div className="mb-4">
+                    <div className="team-last-match">
                         <MatchCard clubId={clubId} match={lastMatch} title="Dernier Match" />
                     </div>
-                    <div className="mb-4">
+                    <div className="team-next-match">
                         <MatchCard clubId={clubId} match={nextMatch} title="Prochain Match" />
                     </div>
                 </div>
             )}
 
             {index === 1 && (
-                <div className="mt-4">
+                <div className="team-content">
                     <CompetitionResult team={team} />
                 </div>
             )}
 
             {index === 2 && (
-                <div className="mt-4">
+                <div className="team-content">
                     <CompetitionCalendar team={team} />
                 </div>
             )}

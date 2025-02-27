@@ -1,0 +1,68 @@
+/* ============================= */
+/*       ErrorMessage.css        */
+/* ============================= */
+
+/* Conteneur principal */
+.error-message {
+    background-color: #fef2f2;
+    /* Rouge clair */
+    border-radius: var(--border-radius);
+    /* Arrondi des coins */
+    padding: var(--spacing-medium);
+    /* Espacement interne */
+}
+
+/* Conteneur interne */
+.error-message-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Conteneur de l'icône */
+.icon-container {
+    flex-shrink: 0;
+    /* Empêche l'icône de changer de taille */
+}
+
+/* Icône d'erreur */
+.error-icon {
+    height: 20px;
+    width: 20px;
+    color: #f87171;
+    /* Rouge vif */
+}
+
+/* Texte d'erreur */
+.error-text {
+    margin-left: var(--spacing-medium);
+    /* Espacement à gauche de l'icône */
+}
+
+/* Titre d'erreur */
+.error-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #991b1b;
+    /* Rouge foncé */
+    margin: 0;
+}
+
+/* Liste des messages d'erreur */
+.error-messages {
+    margin-top: var(--spacing-small);
+    font-size: 0.875rem;
+    color: #b91c1c;
+    /* Rouge intermédiaire */
+}
+
+.error-messages ul {
+    padding-left: 20px;
+    /* Décalage pour les puces */
+    list-style-type: disc;
+    /* Style de puce */
+}
+
+.error-messages li {
+    margin-bottom: 0.5rem;
+    /* Espacement entre les messages */
+}

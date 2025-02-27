@@ -1,0 +1,35 @@
+/* ============================= */
+/*         MatchCard.css         */
+/* ============================= */
+
+/* En-tête de la carte */
+.match-card-header {
+    padding: var(--spacing-small);
+}
+
+
+/* Pas de match */
+.no-match {
+    padding: var(--spacing-medium);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* ============================= */
+/*    Media Query pour 4K        */
+/* ============================= */
+@media (min-width: 2560px) {
+    .match-card-header {
+        padding: var(--spacing-medium);
+        /* Espacement augmenté */
+    }
+
+    .no-match {
+        font-size: 1.5rem;
+        /* Texte plus lisible pour 4K */
+        padding: var(--spacing-large);
+        /* Plus d’espace interne */
+    }
+}

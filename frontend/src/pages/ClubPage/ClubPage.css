@@ -1,0 +1,50 @@
+/* ============================= */
+/*      Styles pour ClubPage     */
+/* ============================= */
+
+/* Conteneur principal de la page */
+.club-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    /* Utilise toute la hauteur de la fenêtre */
+    background-color: var(--background-light);
+    /* Optionnel, pour distinguer */
+}
+
+
+/* Conteneur des colonnes */
+.club-container {
+    flex-grow: 1;
+    /* Utilise l'espace restant après le header */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Colonnes dynamiques */
+    gap: var(--spacing-small);
+    /* Espacement entre les colonnes */
+    padding: var(--spacing-small);
+    overflow: auto;
+    /* Ajoute un défilement si nécessaire */
+}
+
+
+/* Colonnes individuelles */
+.club-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-small);
+}
+
+/* Message si aucune équipe n'est disponible */
+.no-teams-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-top: var(--spacing-large);
+}

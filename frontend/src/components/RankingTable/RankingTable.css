@@ -1,0 +1,96 @@
+/* ============================= */
+/*       RankingTable.css        */
+/* ============================= */
+
+/* Contenu avec scroll vertical */
+.ranking-table-body {
+    max-height: 400px;
+    /* Hauteur maximale avec défilement */
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+}
+
+/* Table */
+.ranking-table-content {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    /* Taille de police par défaut */
+}
+
+/* En-tête de la table */
+.ranking-table-content thead th {
+    background-color: #f0f0f0;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    padding: var(--spacing-very-small);
+}
+
+/* Alignements pour les colonnes */
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* Corps de la table */
+.ranking-table-content tbody td {
+    padding: var(--spacing-very-small);
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternance des couleurs */
+.even-row {
+    background-color: #f9f9f9;
+}
+
+.odd-row {
+    background-color: white;
+}
+
+/* Ligne surlignée pour le club en cours */
+.highlight-row {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+/* Suppression des bordures sur la dernière ligne */
+.ranking-table-content tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ============================= */
+/*    Media Query pour 4K        */
+/* ============================= */
+@media (min-width: 2560px) {
+    .ranking-table-body {
+        max-height: 800px;
+        /* Augmente la hauteur pour les grands écrans */
+    }
+
+    .ranking-table-content {
+        font-size: 1.4rem;
+        /* Augmente la taille de police */
+    }
+
+    .ranking-table-content thead th {
+        font-size: 1.4rem;
+        /* Plus grande taille pour les en-têtes */
+        padding: var(--spacing-small);
+        /* Plus d'espacement interne */
+    }
+
+    .ranking-table-content tbody td {
+        font-size: 1.4rem;
+        /* Augmente la taille des cellules */
+        padding: var(--spacing-small);
+        /* Plus d'espace pour les grands écrans */
+    }
+}

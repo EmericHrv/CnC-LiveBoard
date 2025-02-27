@@ -1,0 +1,102 @@
+/* ============================= */
+/*          Match.css            */
+/* ============================= */
+
+/* Informations sur la date et l'heure */
+.match-date-time {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: var(--spacing-small);
+    color: #6b7280;
+    /* Gris clair */
+}
+
+/* Conteneur des équipes */
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Bloc d'une équipe */
+.team {
+    flex: 1;
+    text-align: center;
+}
+
+/* Logo de l'équipe */
+.team-logo {
+    height: 50px;
+    /* Taille du logo */
+    margin: 0 auto;
+    display: block;
+}
+
+/* Nom de l'équipe */
+.team-name {
+    margin-top: var(--spacing-small);
+    font-size: 0.75rem;
+}
+
+.team-name.highlight {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Bloc du score */
+.match-score {
+    flex: 1;
+    text-align: center;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Forfait */
+.forfeit {
+    margin-top: var(--spacing-small);
+    color: red;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* ============================= */
+/*    Media Query pour 4K        */
+/* ============================= */
+@media (min-width: 2560px) {
+    .match-date-time {
+        font-size: 1.4rem;
+        /* Augmente la taille de la date et heure */
+        margin-top: var(--spacing-medium);
+        /* Plus d'espace au-dessus */
+    }
+
+    .team-logo {
+        height: 100px;
+        /* Agrandit les logos */
+    }
+
+    .team-name {
+        font-size: 1.4rem;
+        /* Texte plus lisible */
+    }
+
+    .score {
+        font-size: 3rem;
+        /* Taille du score augmentée */
+    }
+
+    .forfeit {
+        font-size: 1.4rem;
+        /* Augmente la taille du texte de forfait */
+        margin-top: var(--spacing-medium);
+        /* Plus d'espace au-dessus */
+    }
+
+    .match-teams {
+        gap: var(--spacing-medium);
+        /* Plus d'espace entre les équipes */
+    }
+}

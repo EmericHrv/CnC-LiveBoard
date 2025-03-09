@@ -1,14 +1,13 @@
-'use client';
-
 import React, { useEffect, useState } from 'react';
-import DashboardHeader from '../../components/DashboardHeader';
+import { useNavigate } from 'react-router-dom';
+import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Notification from '../../components/Notification';
 import EventsTable from '../../components/EventsTable';
 import PostsTable from '../../components/PostsTable';
 import EventModal from '../../components/EventModal';
-import PostModal from '../../components/PostModal'; // Import de la modale pour les posts
-import { useNavigate } from 'react-router-dom';
+import PostModal from '../../components/PostModal';
+import './DashboardPage.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.liveboard.esmorannes.com';
 
@@ -94,22 +93,22 @@ const DashboardPage = () => {
     };
 
     const handleEditEvent = (event) => {
-        setEventToEdit(event); // Pré-remplit les champs pour l'édition
+        setEventToEdit(event);
         setIsEventModalOpen(true);
     };
 
     const handleCreateEvent = () => {
-        setEventToEdit(null); // Réinitialise pour une création
+        setEventToEdit(null);
         setIsEventModalOpen(true);
     };
 
     const handleEditPost = (post) => {
-        setPostToEdit(post); // Pré-remplit les champs pour l'édition
+        setPostToEdit(post);
         setIsPostModalOpen(true);
     };
 
     const handleCreatePost = () => {
-        setPostToEdit(null); // Réinitialise pour une création
+        setPostToEdit(null);
         setIsPostModalOpen(true);
     };
 
@@ -150,7 +149,7 @@ const DashboardPage = () => {
 
             if (response.ok) {
                 showNotification('success', 'Post supprimé', 'Le post a été supprimé avec succès.');
-                fetchPosts(); // Recharge les posts après suppression
+                fetchPosts();
             } else {
                 showNotification('error', 'Erreur', 'Impossible de supprimer le post.');
             }
@@ -159,7 +158,6 @@ const DashboardPage = () => {
             showNotification('error', 'Erreur serveur', 'Une erreur s\'est produite.');
         }
     };
-
 
     const handleSubmitEvent = async (data) => {
         setLoading(true);
@@ -212,7 +210,7 @@ const DashboardPage = () => {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
-                body: formData, // FormData pour gérer les fichiers
+                body: formData,
             });
 
             if (response.ok) {
@@ -235,22 +233,22 @@ const DashboardPage = () => {
     };
 
     return (
-        <div className="min-h-full">
-            <DashboardHeader currentPage="Tableau de bord" onLogout={handleLogout} />
-            <main className="-mt-32">
-                <div className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 lg:px-8">
-                    <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
+        <div className="dashboard-page">
+            <DashboardHeader className="dashboard-header" currentPage="Tableau de bord" onLogout={handleLogout} />
+            <main className="main-content">
+                <div className="section-container">
+                    <div className="section">
                         <EventsTable
                             events={events}
                             onEdit={handleEditEvent}
                             onDelete={handleDeleteEvent}
                             onCreate={handleCreateEvent}
                         />
-                        {loading && <p className="text-sm text-gray-500 mt-4">Chargement en cours...</p>}
+                        {loading && <p className="loading-message">Chargement en cours...</p>}
                     </div>
                 </div>
-                <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-                    <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
+                <div className="section-container">
+                    <div className="section">
                         <PostsTable
                             posts={posts}
                             onEdit={handleEditPost}
@@ -271,7 +269,7 @@ const DashboardPage = () => {
                 isOpen={isEventModalOpen}
                 onClose={() => {
                     setIsEventModalOpen(false);
-                    setEventToEdit(null); // Réinitialise les données
+                    setEventToEdit(null);
                 }}
                 onSubmit={handleSubmitEvent}
                 initialData={eventToEdit}
@@ -280,7 +278,7 @@ const DashboardPage = () => {
                 isOpen={isPostModalOpen}
                 onClose={() => {
                     setIsPostModalOpen(false);
-                    setPostToEdit(null); // Réinitialise les données
+                    setPostToEdit(null);
                 }}
                 onSubmit={handleSubmitPost}
                 initialData={postToEdit}

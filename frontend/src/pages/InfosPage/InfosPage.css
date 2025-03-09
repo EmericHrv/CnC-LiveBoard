@@ -61,30 +61,42 @@
     /* Taille ajustée pour mieux équilibrer les colonnes */
 }
 
-/* Liste des événements */
 .events-list {
-    flex-grow: 1;
-    overflow-y: auto;
-    /* Ajoute un défilement vertical */
-    margin-top: var(--spacing-medium);
     display: flex;
     flex-direction: column;
+    height: 100%;
+    /* Assure que le conteneur prend toute la hauteur disponible */
+    overflow-y: auto;
+    /* Ajoute un défilement vertical si nécessaire */
+    margin-top: var(--spacing-medium);
     gap: var(--spacing-small);
     /* Ajoute un espace entre les items */
 }
 
-/* Pied des événements */
 .events-list-footer {
     margin-top: auto;
+    /* Pousse le footer vers le bas */
     background-color: var(--primary-color);
     color: var(--text-color-light);
-    padding: var(--spacing-medium);
+    padding: 0.5rem;
+    /* Réduction du padding pour moins d'espace */
     text-align: center;
     font-size: clamp(1rem, 1.2vw, 1.5rem);
     /* Taille adaptative */
     font-weight: bold;
     border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.events-list-footer h4 {
+    margin: 0;
+    /* Suppression des marges pour réduire l'espacement */
+    line-height: 1.2;
+    /* Réduction de l'espacement entre les lignes */
+}
+
 
 /* Événement individuel */
 .event-item {
@@ -128,6 +140,22 @@
     height: 100%;
     /* Remplit toute la hauteur disponible */
 }
+
+.post-placeholder {
+    background-color: #f0f0f0;
+    /* Couleur de fond pour le placeholder */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    height: 100%;
+    /* Assure que le placeholder occupe tout l'espace */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    /* Couleur du texte pour le placeholder */
+    font-size: 1rem;
+}
+
 
 
 /* Message vide pour les publications */

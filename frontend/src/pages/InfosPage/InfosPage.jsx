@@ -75,18 +75,28 @@ const InfosPage = () => {
         if (errorPosts) {
             return <p className="error-message">{errorPosts}</p>;
         }
-        if (posts.length > 0) {
-            return posts.map((post) => (
-                <PostCard
-                    key={post.id}
-                    title={post.title}
-                    image={`${API_BASE_URL}${post.image.url}`} // Assume image URL is relative
-                    text={post.content}
-                />
-            ));
+
+        const renderedPosts = posts.map((post) => (
+            <PostCard
+                key={post.id}
+                title={post.title}
+                image={`${API_BASE_URL}${post.image.url}`} // Assume image URL is relative
+                text={post.content}
+            />
+        ));
+
+        // Ajouter des placeholders si moins de 3 posts
+        while (renderedPosts.length < 3) {
+            renderedPosts.push(
+                <div key={`placeholder-${renderedPosts.length}`} className="post-placeholder">
+
+                </div>
+            );
         }
-        return <p className="no-posts-message">Aucune publication à afficher</p>;
+
+        return renderedPosts;
     };
+
 
     return (
         <div className="infos-page">
@@ -103,10 +113,10 @@ const InfosPage = () => {
                     <div className="events-list">
                         {renderEventsContent()}
                         <div className="events-list-footer">
-                            <h3>
+                            <h4>
                                 Écran offert avec générosité par notre partenaire et sponsor : <br />
                                 Pulsat Châteauneuf-sur-Sarthe.
-                            </h3>
+                            </h4>
                         </div>
                     </div>
                 </div>

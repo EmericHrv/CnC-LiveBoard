@@ -1,12 +1,10 @@
-/* EventCard.css */
-
 .event-card {
     display: flex;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
     height: clamp(6rem, 10vh, 12rem);
-    /* Hauteur encore plus compacte */
+    /* Hauteur compacte */
 }
 
 .event-card-date {
@@ -16,24 +14,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 25%;
-    /* Proportions maintenues */
+    width: 30%;
+    /* Ajustement de la largeur pour un meilleur équilibre */
     padding: var(--spacing-small);
-    gap: 0.2rem;
-    /* Réduction de l'espacement entre les éléments */
+    gap: 0.1rem;
+    /* Espacement réduit pour moins d'espace entre les éléments */
 }
 
 .event-card-date .day {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    /* Taille réduite pour harmonisation */
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
     font-weight: bold;
+    margin: 0;
+    /* Suppression des marges pour réduire l'espacement */
 }
 
 .event-card-date .month,
 .event-card-date .time {
-    font-size: clamp(0.8rem, 1vw, 1rem);
-    /* Réduction pour meilleure lisibilité */
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     font-weight: 600;
+    margin: 0;
+    /* Suppression des marges pour réduire l'espacement */
 }
 
 .event-card-content {
@@ -42,22 +42,32 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 75%;
+    width: 70%;
     /* Ajustement en accord avec event-card-date */
-    gap: 0.4rem;
-    /* Réduction de l'espacement entre le titre et la description */
+    gap: 0.2rem;
+    /* Espacement réduit pour moins d'espace entre les éléments */
 }
 
 .event-card-content .title {
-    font-size: clamp(0.8rem, 1vw, 1.2rem);
-    /* Taille adaptée pour éviter l'excès */
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
     font-weight: bold;
     text-align: center;
+    margin: 0;
+    /* Suppression des marges pour réduire l'espacement */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* Gère les débordements de texte */
 }
 
 .event-card-content .description {
-    font-size: clamp(0.6rem, 0.9vw, 0.8rem);
-    /* Texte réduit et plus compact */
+    font-size: clamp(0.8rem, 1vw, 1rem);
     color: #555;
     text-align: center;
+    margin: 0;
+    /* Suppression des marges pour réduire l'espacement */
+    word-wrap: break-word;
+    /* Permet le retour à la ligne */
+    overflow-wrap: break-word;
+    /* Gère les mots longs */
 }

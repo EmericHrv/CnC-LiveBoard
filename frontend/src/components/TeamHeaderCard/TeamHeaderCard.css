@@ -1,7 +1,3 @@
-/* ============================= */
-/*      TeamHeaderCard.css       */
-/* ============================= */
-
 /* Conteneur principal */
 .team-header-card {
     background-color: var(--primary-color);
@@ -36,12 +32,12 @@
     }
 
     .team-header-title {
-        font-size: clamp(1.5rem, 2vw, 2.5rem);
-        /* Agrandit le titre principal */
+        font-size: clamp(1.5rem, 1.5vw, 2rem);
+        /* Réduit la taille maximale du titre principal */
     }
 
     .team-header-subtitle {
-        font-size: clamp(1rem, 2vw, 1.5rem);
-        /* Augmente la taille du sous-titre */
+        font-size: clamp(1rem, 1.2vw, 1.25rem);
+        /* Réduit la taille maximale du sous-titre */
     }
 }

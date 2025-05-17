@@ -7,6 +7,8 @@ import DashboardPage from './pages/DashboardPage/DashboardPage';
 import MainPage from './pages/MainPage/MainPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import InfosPage from './pages/InfosPage/InfosPage';
+import EventsPage from './pages/EventsPage/EventsPage';
+import PostsPage from './pages/PostsPage/PostsPage';
 
 // Route privée : nécessite un token valide
 const PrivateRoute = ({ children }) => {
@@ -71,6 +73,22 @@ const App = () => {
           <DashboardPage />
         </PrivateRoute>
       } />
+
+      {/* Route événements (protégée) */}
+      <Route path="/events" element={
+        <PrivateRoute>
+          <EventsPage />
+        </PrivateRoute>
+      } />
+
+      {/* Route posts (protégée) */}
+      <Route path="/posts" element={
+        <PrivateRoute>
+          <PostsPage />
+        </PrivateRoute>
+      } />
+
+      {/* Redirection vers la page de connexion si aucune route ne correspond */}
 
       {/* Route 404 : Page introuvable */}
       <Route path="*" element={<NotFoundPage />} />

@@ -1,0 +1,138 @@
+/* Overlay complet */
+.event-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+
+/* Fond assombri */
+.event-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Conteneur central */
+.event-modal-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-medium);
+    z-index: 110;
+}
+
+/* Boîte de dialogue */
+.event-modal-dialog {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+/* Panel de contenu */
+.event-modal-panel {
+    padding: var(--spacing-medium);
+    box-sizing: border-box;
+}
+
+/* Titre */
+.event-modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-medium);
+    color: var(--text-color);
+}
+
+/* Formulaire */
+.event-modal-form .form-group {
+    margin-bottom: var(--spacing-medium);
+}
+
+.event-modal-form label {
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.event-modal-form input,
+.event-modal-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: #fff;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Actions */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-small);
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+}
+
+.btn.cancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn.cancel:hover {
+    background-color: #c6c6c6;
+}
+
+.btn.submit {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.submit:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Transitions (facultatif) */
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+}
+
+.modal-enter-to,
+.modal-leave-from {
+    opacity: 1;
+}
+
+.modal-panel-enter-from {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.modal-panel-enter-to {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-panel-leave-from {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-panel-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+}

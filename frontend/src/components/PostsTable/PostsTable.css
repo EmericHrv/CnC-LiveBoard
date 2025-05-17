@@ -1,0 +1,121 @@
+.posts-table-wrapper {
+    padding: var(--spacing-medium);
+}
+
+.posts-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
+}
+
+.posts-table-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.posts-table-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: var(--spacing-small);
+}
+
+.posts-table-add-button {
+    margin-top: var(--spacing-small);
+    margin-left: auto;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.posts-table-container {
+    overflow-x: auto;
+}
+
+.posts-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    text-align: left;
+    padding: 0.75rem;
+    font-weight: bold;
+    color: var(--text-color);
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-row:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.table-cell {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    color: #333;
+    word-break: break-word;
+    vertical-align: top;
+}
+
+.table-cell-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.action-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-icon.edit {
+    color: var(--primary-color);
+}
+
+.action-icon.edit:hover {
+    color: var(--primary-dark);
+}
+
+.action-icon.delete {
+    color: red;
+}
+
+.action-icon.delete:hover {
+    color: darkred;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.post-image-preview {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+}
+
+.text-muted {
+    color: #888;
+}

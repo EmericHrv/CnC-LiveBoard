@@ -64,7 +64,7 @@ body {
 .main-content {
   flex-grow: 1;
   /* Remplit tout l’espace disponible */
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   padding: var(--spacing-medium);

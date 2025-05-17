@@ -1,0 +1,14 @@
+/* Table / Section */
+.posts-table-container {
+    background-color: #fff;
+    padding: var(--spacing-medium);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Chargement */
+.loading-message {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    margin-top: var(--spacing-small);
+}

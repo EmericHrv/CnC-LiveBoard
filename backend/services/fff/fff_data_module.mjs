@@ -10,7 +10,7 @@ async function getClubTeams(clubId) {
 
 
         if (response.status === 200) {
-            const data = response.data['hydra:member'];
+            const data = response.data;
             const allTeams = [];
             const clubName = data[0]['club']['name'] || '';
 
@@ -72,8 +72,7 @@ async function getGroupRanking(competitionId, phaseId, groupId) {
         const response = await apiClient.get(`/compets/${competitionId}/phases/${phaseId}/poules/${groupId}/classement_journees`);
 
         if (response.status === 200) {
-            const body = response.data;
-            const data = body['hydra:member'];
+            const data = response.data;
 
             const allRankings = data.map((data) => {
                 // console.log(data);
@@ -121,8 +120,7 @@ async function getCompetitionResults(competitionId, phaseId, groupId) {
         const response = await apiClient.get(`/compets/${competitionId}/phases/${phaseId}/poules/${groupId}/resultat?page=1`);
 
         if (response.status === 200) {
-            const body = response.data;
-            const data = body['hydra:member'];
+            const data = response.data;
 
             const allMatches = data.map((matchData) => {
                 const match = {
@@ -193,8 +191,7 @@ async function getCompetitionCalendar(competitionId, phaseId, groupId) {
         const response = await apiClient.get(`/compets/${competitionId}/phases/${phaseId}/poules/${groupId}/calendrier?page=1`);
 
         if (response.status === 200) {
-            const body = response.data;
-            const data = body['hydra:member'];
+            const data = response.data;
 
             const allMatches = data.map((matchData) => {
                 const match = {
@@ -265,8 +262,7 @@ async function getCompetitionTeams(competitionId, phaseId, groupId) {
         const response = await apiClient.get(`/engagements?competition.cp_no=${competitionId}&phase.ph_no=${phaseId}&poule.gp_no=${groupId}`);
 
         if (response.status === 200) {
-            const body = response.data;
-            const data = body['hydra:member'];
+            const data = response.data;
 
             const allRankings = data.map((data, index) => {
                 var ranking = {
@@ -312,7 +308,7 @@ async function getNextTeamMatch(clubId, teamId) {
         const response = await apiClient.get(`/clubs/${clubId}/equipes/${teamId}/calendrier?ma_dat[after]=${date_after}&ma_dat[before]=${date_before}`);
 
         if (response.status === 200) {
-            let matches = response.data['hydra:member'];
+            let matches = response.data;
 
             // Obtenez l'heure actuelle dans le fuseau Europe/Paris
             const now = moment().tz('Europe/Paris');
@@ -414,7 +410,7 @@ async function getLastTeamMatch(clubId, teamId) {
         const response = await apiClient.get(`/clubs/${clubId}/equipes/${teamId}/resultat`);
 
         if (response.status === 200) {
-            const data = response.data['hydra:member'][0];
+            const data = response.data[0];
             // console.log(data);
 
             var match = {

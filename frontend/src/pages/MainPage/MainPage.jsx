@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { fetchClubsData } from '../../services/dataService';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ClubPage from '../ClubPage/ClubPage';
-import InfosPage from '../InfosPage/InfosPage';
+// import InfosPage from '../InfosPage/InfosPage'; // ❌ Désactivé temporairement
 
 const MainPage = () => {
     const [pagesData, setPagesData] = useState([]); // Données des clubs
     const [currentIndex, setCurrentIndex] = useState(0); // Index de la page Club actuelle
-    const [showInfoPage, setShowInfoPage] = useState(false); // Indique si InfosPage doit être affichée
+    // const [showInfoPage, setShowInfoPage] = useState(false); // ❌ Retiré temporairement
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -35,16 +35,19 @@ const MainPage = () => {
     }, []);
 
     useEffect(() => {
-        // Gestion de l'affichage des pages Club et Infos
+        // Gestion de l'affichage des pages Club
         if (pagesData.length > 0) {
             const interval = setInterval(() => {
                 setCurrentIndex((prevIndex) => {
-                    // Si on a affiché toutes les pages Club, passer à InfosPage
-                    if (prevIndex === pagesData.length - 1) {
-                        setShowInfoPage(true);
-                        return 0; // Réinitialiser à la première page Club après InfosPage
-                    }
-                    return prevIndex + 1; // Passer à la page Club suivante
+                    // Si on a affiché toutes les pages Club, recommencer depuis le début
+                    // if (prevIndex === pagesData.length - 1) {
+                    //     setShowInfoPage(true); // ❌ InfosPage désactivée
+                    //     return 0;
+                    // }
+                    // return prevIndex + 1;
+
+                    // ✅ Boucle uniquement sur les pages Club
+                    return (prevIndex + 1) % pagesData.length;
                 });
             }, 60000); // 60 secondes par page Club
 
@@ -52,16 +55,15 @@ const MainPage = () => {
         }
     }, [pagesData]);
 
-    useEffect(() => {
-        // Temporisation pour afficher InfosPage pendant 45 secondes
-        if (showInfoPage) {
-            const timeout = setTimeout(() => {
-                setShowInfoPage(false); // Retour à ClubPage après 45 secondes
-            }, 45000);
-
-            return () => clearTimeout(timeout);
-        }
-    }, [showInfoPage]);
+    // useEffect(() => {
+    //     // Temporisation pour afficher InfosPage pendant 45 secondes
+    //     if (showInfoPage) {
+    //         const timeout = setTimeout(() => {
+    //             setShowInfoPage(false); // Retour à ClubPage après 45 secondes
+    //         }, 45000);
+    //         return () => clearTimeout(timeout);
+    //     }
+    // }, [showInfoPage]);
 
     if (error) {
         return <ErrorPage message={error} />;
@@ -71,7 +73,8 @@ const MainPage = () => {
         return <p>Chargement des données...</p>;
     }
 
-    return showInfoPage ? <InfosPage /> : <ClubPage club={pagesData[currentIndex]} />;
+    // return showInfoPage ? <InfosPage /> : <ClubPage club={pagesData[currentIndex]} />; // ❌
+    return <ClubPage club={pagesData[currentIndex]} />; // ✅ Affiche uniquement ClubPage
 };
 
 export default MainPage;
